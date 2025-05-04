@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= person._id ? "Edit Person" : "New Person" %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #a9cef3;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      max-width: 400px;
+      width: 100%;
+      text-align: left;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-group label {
+      width: 100px;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: calc(100% - 110px); /* To account for label width and padding */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    form button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #0056b3;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      text-align: center;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2><%= person._id ? "Edit Person" : "New Person" %></h2>
+    <form method="POST" action="<%= person._id ? '/person/' + person._id + '?_method=PUT' : '/person' %>">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input name="name" id="name" value="<%= person.name || '' %>" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input name="age" id="age" value="<%= person.age || '' %>" type="number" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <input name="gender" id="gender" value="<%= person.gender || '' %>" required>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile:</label>
+        <input name="mobile" id="mobile" value="<%= person.mobile || '' %>" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <a href="/person">Cancel</a>
+  </div>
+</body>
+</html>
