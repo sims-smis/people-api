@@ -13,7 +13,12 @@ This is a Node.js web application using **Express**, **MongoDB (Mongoose)**, and
 ## 🎥 Demo
 
 Check out the demo video here:  
-https://github.com/user-attachments/assets/d87aef5d-4919-4729-ac01-6926ee531e0c
+
+
+
+https://github.com/user-attachments/assets/07d2cf66-3e43-43eb-9dde-49738f02cdef
+
+
 
 
 ## 📦 Project Structure
